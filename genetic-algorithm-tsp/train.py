@@ -102,9 +102,67 @@ while True:
     for route in population:
         env.reset()
 
+        # get the distance planet by planet for that route
         for i in range(dnaLength):
             action = route.dna[i]
             route.distance += env.step(action, 'none') # at the end this variable give the total distance travelled by the rocket
+
+    # Sorting the population (the first step to get the best bot from each population)
+    sortedPop = sorted(population, key = lambda x: x.distance)
+    population.clear()
+
+    if sortedPop[0].distance < bestDist:
+        bestDist = sortedPop[0].distance
+
+
+    # Add best previous bots to the population (case the new bots presents worst results)
+    for i in range(nSelected):
+        best = sortedPop[i]
+        best.distance = 0
+
+        population.append(best)
+
+    # Filling the rest of the population
+    left = populationSize - nSelected
+
+    for i in range(left):
+        newRoute = Route(dnaLength)
+
+        # if the new route is a complete mutation (that is a new random parent)
+        if np.random.rand() <= mutationRate:
+            population.append(newRoute)
+
+        else:
+            idx1 = np.random.randint(0, nSelected)
+            idx2 = np.random.randint(0, nSelected)
+            while idx1 == idx2:
+                idx2 = np.random.randint(0, nSelected)
+
+            dna1 = sortedPop[idx1].dna
+            dna2 = sortedPop[idx2].dna
+
+            newRoute.mix(dna1, dna2)
+
+            population.append(newRoute)
+
+
+    # Displaying the results
+    env.reset()
+
+    for i in range(dnaLength):
+        action = sortedPop[0].dna[i] # next planet to go
+        _ = env.step(action, 'normal')
+
+    if generation % 100 == 0:
+        env.reset()
+        for i in range(dnaLength):
+            action = sortedPop[0].dna[i] # next planet to go
+            _ = env.step(action, 'beautiful')
+
+    print('Generation: ' + str(generation) + 'Shortest distance: {:.2f}'.format(bestDist) + ' light years')
+
+
+
 
 
 

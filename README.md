@@ -10,6 +10,8 @@ A course to learn the basics about how to use powerful Deep Reinforcement Learni
 - Numpy and PyGame libraries
 - Find the best route to travelled by all the planets created by the user.
 
+	OBS: In order to execute the project run the "train.py", not "environment.py". Also, after have placed planets click "Enter" ("Return" on Mac) for the code to start searching for the best route.
+
 ### 2 - Loading...
 
 

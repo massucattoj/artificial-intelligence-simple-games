@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    Udemy Course
-    Artificial Intelligence for Simple Games
+    Udemy Course - Artificial Intelligence for Simple Games
     Created by Jan Warchocki, Hadelin de Ponteves, Kirill Eremenko, SuperDataScience Team
+
+    Massucatto, Jean
 """
 
 # Import libraries
@@ -159,48 +160,3 @@ while True:
             _ = env.step(action, 'beautiful')
 
     print('Generation: ' + str(generation) + 'Shortest distance: {:.2f}'.format(bestDist) + ' light years')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

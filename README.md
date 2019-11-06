@@ -1,5 +1,5 @@
 
-# Artificial Intelligence for Simple Games
+<p align="center"><h1>Artificial Intelligence for Simple Games</h1></p>
 
 A course to learn the basics about how to use powerful Deep Reinforcement Learning and Artificial Intelligence tools on examples of AI simple games!
 

@@ -15,8 +15,7 @@ class Environment():
 
         self.width = 600
         self.height = 600
-        self.planetRadius = 10
-        self.title = pg.display.set_caption('TSP Rocket - Genetic Algorithm')
+        self.planetRadius = 10        
         self.planets = list()
 
         self.connections = list()
@@ -43,7 +42,7 @@ class Environment():
 
     def drawScreen(self, view):
         self.screen.fill((0, 0, 0))
-
+        self.title = pg.display.set_caption('TSP Rocket - Genetic Algorithm')
         self.screen.blit(self.spriteBackground, (0,0))
 
         if view == 'normal':

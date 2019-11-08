@@ -159,4 +159,4 @@ while True:
             action = sortedPop[0].dna[i] # next planet to go
             _ = env.step(action, 'beautiful')
 
-    print('Generation: ' + str(generation) + 'Shortest distance: {:.2f}'.format(bestDist) + ' light years')
+    print('Generation: ' + str(generation) + ' => Shortest distance: {:.2f}'.format(bestDist) + ' light years')
